@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MockMate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <img src="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/logo.svg" alt="Logo">
+            <span>MockMate</span>
+        </a>
+        <nav class="main-nav">
+            <a href="how-it-works.html">How It Works</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </header>
+
+    <main class="container">
+        <div class="static-page-container">
+            <h1 class="main-heading">About <span class="highlight-text">MockMate</span></h1>
+            <p class="sub-heading">Our mission is to empower job seekers by providing an accessible, intelligent, and effective tool for interview preparation.</p>
+            
+            <div class="static-content">
+                <h2>Our Story</h2>
+                <p>MockMate was born from a simple observation: while there are countless resources to find job openings, there's a significant gap in effective, personalized tools for interview practice. Traditional methods like reading articles or practicing in front of a mirror lack the dynamic feedback necessary for real improvement. We wanted to change that.</p>
+                <p>As students of engineering and technology, we saw an opportunity to leverage the power of artificial intelligence to create a more realistic and beneficial practice environment. We envisioned a platform that could not only ask relevant questions but also provide immediate, constructive criticism—acting as a personal interview coach available 24/7.</p>
+                
+                <h2>What We Do</h2>
+                <p>MockMate simulates real-world job interviews by using cutting-edge AI to:
+                    <ul>
+                        <li>Generate questions tailored to specific job roles and experience levels.</li>
+                        <li>Listen to your answers and provide a real-time transcript.</li>
+                        <li>Analyze your responses and offer instant feedback on clarity, structure, and content.</li>
+                        <li>Provide high-quality example answers to help you understand best practices.</li>
+                    </ul>
+                </p>
+                <p>Our goal is to help you walk into your next interview feeling prepared, confident, and ready to make a great impression.</p>
+
+                <h2>The Team</h2>
+                <p>We are a team of passionate students from Chitkara University, dedicated to using technology to solve real-world problems. This project is a culmination of our studies in front-end development, cloud computing, and artificial intelligence.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Simple script for logout functionality on static pages
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

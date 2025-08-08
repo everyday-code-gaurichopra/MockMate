@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - MockMate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <img src="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/logo.svg" alt="Logo">
+            <span>MockMate</span>
+        </a>
+        <nav class="main-nav">
+            <a href="how-it-works.html">How It Works</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html" class="active">FAQ</a>
+        </nav>
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </header>
+
+    <main class="container">
+        <div class="static-page-container">
+            <h1 class="main-heading">Frequently Asked <span class="highlight-text">Questions</span></h1>
+            
+            <div class="static-content">
+                <div class="faq-item">
+                    <h4>Is MockMate free to use?</h4>
+                    <p>Yes, this version of MockMate is a project created for educational purposes and is completely free to use.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What technology do you use for the AI?</h4>
+                    <p>We use the Google Gemini API for all our artificial intelligence features, including generating interview questions and providing feedback on your answers.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my interview data private?</h4>
+                    <p>Yes. Your interview data is stored securely in a private collection linked to your user ID in our Firestore database. It is not accessible by other users.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why do I need to grant camera and microphone access?</h4>
+                    <p>Access to your camera and microphone is essential for the core functionality of the app. It allows us to simulate a real video interview and use speech-to-text to transcribe your answers for analysis.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What browsers are supported?</h4>
+                    <p>For the best experience, especially for the speech-to-text feature, we recommend using the latest version of Google Chrome. While the site may work on other modern browsers, full functionality is optimized for Chrome.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

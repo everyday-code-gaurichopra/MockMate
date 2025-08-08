@@ -1,0 +1,191 @@
+/* --- General Styling & Variables --- */
+:root {
+    --background-dark: #030712;
+    --background-light: #111827;
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+    --accent-blue: #3B82F6;
+    --accent-purple: #8B5CF6;
+    --accent-red: #EF4444;
+    --accent-green: #10B981;
+    --border-color: #374151;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* --- Header & Logo --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: var(--background-dark);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.logo img {
+    height: 30px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--text-primary);
+}
+
+
+/* --- Main Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: flex-start; /* Align to top */
+    justify-content: center;
+}
+
+/* --- Login Page Styles --- */
+.login-container { display: flex; justify-content: center; align-items: center; width: 100%; height: calc(100vh - 80px); }
+.login-box { background-color: var(--background-light); padding: 2.5rem; border-radius: 1rem; border: 1px solid var(--border-color); width: 100%; max-width: 400px; text-align: center; }
+.login-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+.login-subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+.login-form .form-group { margin-bottom: 1.5rem; text-align: left; }
+.login-form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.login-form input { width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background-color: var(--background-dark); color: var(--text-primary); font-size: 1rem; }
+.login-btn { width: 100%; justify-content: center; }
+.login-note { font-size: 0.875rem; color: var(--text-secondary); margin-top: 1.5rem; }
+
+/* --- Static Page Styles (About, How-to, FAQ) --- */
+.static-page-container {
+    background-color: var(--background-light);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 900px;
+}
+.static-content h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+.static-content p, .static-content li { color: var(--text-secondary); margin-bottom: 1rem; }
+.static-content ul { padding-left: 2rem; }
+.static-content .step, .static-content .faq-item { margin-bottom: 2rem; }
+.static-content .step h3, .static-content .faq-item h4 { font-size: 1.25rem; color: var(--accent-blue); margin-bottom: 0.5rem; }
+
+/* --- Utility Classes --- */
+.hidden { display: none !important; }
+.highlight-text { background: -webkit-linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* --- Button Styling --- */
+.btn { padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background-color: var(--accent-blue); color: white; }
+.btn-primary:hover { background-color: #2563EB; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+.btn-secondary { background-color: var(--background-light); color: var(--text-primary); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background-color: var(--border-color); }
+.btn-secondary:disabled { background-color: #374151; color: var(--text-secondary); cursor: not-allowed; }
+.btn-danger { background-color: var(--accent-red); color: white; }
+.btn-danger:hover { background-color: #DC2626; }
+
+/* --- Setup and History Section --- */
+.setup-section { display: grid; grid-template-columns: 1fr; gap: 3rem; width: 100%; }
+.setup-container { background-color: var(--background-light); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); }
+.main-heading { font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.sub-heading { color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; }
+.interview-setup-form .form-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+.interview-setup-form .form-group { flex: 1; }
+.interview-setup-form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.interview-setup-form input, .interview-setup-form select { width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background-color: var(--background-dark); color: var(--text-primary); font-size: 1rem; }
+.history-container { margin-top: 2rem; }
+.history-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); }
+.interview-history-list { display: flex; flex-direction: column; gap: 1rem; max-height: 400px; overflow-y: auto; padding-right: 0.5rem; }
+.history-item { display: flex; justify-content: space-between; align-items: center; background-color: var(--background-light); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color); }
+.history-item-info { display: flex; flex-direction: column; }
+.history-item-info span:first-child { font-weight: 600; }
+.history-item-info span:last-child { font-size: 0.875rem; color: var(--text-secondary); }
+
+/* --- Interview Section --- */
+.interview-section { width: 100%; max-width: 1200px; display: flex; flex-direction: column; background-color: var(--background-light); border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--border-color); height: 80vh; max-height: 700px; }
+.video-and-transcript-container { display: flex; flex-direction: column; gap: 1.5rem; flex-grow: 1; overflow: hidden; }
+.video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; background-color: #000; border-radius: 0.75rem; overflow: hidden; }
+#webcam { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+.recording-indicator { position: absolute; top: 1rem; left: 1rem; background-color: rgba(0, 0, 0, 0.6); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0; transition: opacity 0.3s ease; }
+.recording-indicator.active { opacity: 1; }
+.recording-indicator .dot { width: 8px; height: 8px; background-color: var(--accent-red); border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+.transcript-container { flex-grow: 1; overflow-y: auto; padding-right: 1rem; }
+.transcript-container::-webkit-scrollbar { width: 8px; }
+.transcript-container::-webkit-scrollbar-track { background: var(--background-dark); border-radius: 4px; }
+.transcript-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+.transcript-container::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+.transcript-entry { margin-bottom: 1.5rem; }
+.transcript-speaker { font-weight: 700; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.5rem; }
+.transcript-speaker.ai { color: var(--accent-blue); }
+.transcript-speaker.user { color: var(--accent-green); }
+.transcript-text { color: var(--text-secondary); padding-left: 2rem; }
+.feedback-container { background-color: var(--background-dark); border: 1px solid var(--border-color); border-radius: 0.5rem; margin-top: 1rem; padding: 1rem; margin-left: 2rem; }
+.feedback-title { font-weight: 600; color: var(--accent-purple); margin-bottom: 0.5rem; }
+.feedback-text { font-size: 0.95rem; color: var(--text-secondary); }
+.interview-controls { display: flex; justify-content: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
+
+/* --- Modal Styling --- */
+.modal-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-content { background-color: var(--background-light); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; width: 90%; max-width: 800px; max-height: 90vh; display: flex; flex-direction: column; }
+.modal-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); text-align: center; }
+.modal-body { overflow-y: auto; margin-bottom: 1.5rem; padding-right: 1rem; }
+.modal-close-btn { width: 100%; }
+.summary-item { margin-bottom: 2rem; }
+.summary-item:last-child { margin-bottom: 0; }
+.summary-question { font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem; }
+.summary-answer-title { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; }
+.summary-answer-text { background-color: var(--background-dark); padding: 0.75rem; border-radius: 0.5rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.summary-feedback-title { font-weight: 600; color: var(--accent-purple); margin-bottom: 0.25rem; }
+.summary-feedback-text { background-color: var(--background-dark); padding: 0.75rem; border-radius: 0.5rem; color: var(--text-secondary); }
+
+/* --- Message Box --- */
+.message-box { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); padding: 0.75rem 1.5rem; border-radius: 0.5rem; color: white; z-index: 101; opacity: 0; transition: opacity 0.5s, top 0.5s; pointer-events: none; }
+.message-box.show { opacity: 1; top: 100px; }
+.message-box.success { background-color: var(--accent-green); }
+.message-box.error { background-color: var(--accent-red); }
+
+/* --- Responsive Design --- */
+@media (max-width: 767px) {
+    .main-header { flex-direction: column; gap: 1rem; padding-bottom: 1rem; }
+    body { padding-top: 120px; }
+    .interview-setup-form .form-row { flex-direction: column; gap: 1rem; }
+}

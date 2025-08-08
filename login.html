@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MockMate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/logo.svg" alt="Logo">
+            <span>MockMate</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="login-container">
+            <div class="login-box">
+                <h1 class="login-title">Welcome to MockMate</h1>
+                <p class="login-subtitle">Please log in to continue</p>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary login-btn">Login</button>
+                </form>
+                 <p class="login-note">Note: This is a demo. Any username and password will work.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Basic login script for the login page
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // In a real app, you'd validate credentials here.
+            // For this demo, we'll just mark the user as logged in.
+            sessionStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

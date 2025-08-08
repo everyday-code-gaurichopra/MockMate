@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockMate - AI Mock Interview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <img src="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/logo.svg" alt="Logo">
+            <span>MockMate</span>
+        </a>
+        <nav class="main-nav">
+            <a href="how-it-works.html">How It Works</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </header>
+
+    <div id="message-box" class="message-box"></div>
+
+    <main class="container">
+        <!-- Setup and History Section -->
+        <section id="setup-section" class="setup-section">
+            <div class="setup-container">
+                <h1 class="main-heading">Start a New Mock Interview</h1>
+                <p class="sub-heading">Select your preferences and we'll generate a tailored interview for you.</p>
+                <form id="interviewSetupForm" class="interview-setup-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobRole">Job Role / Topic</label>
+                            <input type="text" id="jobRole" name="jobRole" placeholder="e.g., Frontend Developer" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experienceLevel">Experience Level</label>
+                            <select id="experienceLevel" name="experienceLevel" required>
+                                <option value="Entry-Level">Entry-Level</option>
+                                <option value="Mid-Level">Mid-Level</option>
+                                <option value="Senior-Level">Senior-Level</option>
+                                <option value="Lead/Manager">Lead / Manager</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="startSetupBtn" type="submit" class="btn btn-primary">Let's Get Started</button>
+                    <button id="startInterviewBtn" type="button" class="btn btn-primary hidden">Start Interview</button>
+                </form>
+            </div>
+            <div class="history-container">
+                <h2 class="history-title">Your Past Interviews</h2>
+                <div id="interviewHistory" class="interview-history-list">
+                    <!-- Past interviews will be loaded here by JavaScript -->
+                    <p id="history-loading">Loading history...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Section (Initially Hidden) -->
+        <section id="interview-section" class="interview-section hidden">
+            <div class="video-and-transcript-container">
+                <div class="video-container">
+                    <video id="webcam" autoplay muted playsinline></video>
+                    <div id="recording-indicator" class="recording-indicator">
+                        <div class="dot"></div>
+                        <span>Recording</span>
+                    </div>
+                </div>
+                <div id="transcript-container" class="transcript-container"></div>
+            </div>
+            <div id="interview-controls" class="interview-controls">
+                 <button id="answerBtn" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                    Answer Now
+                </button>
+                <button id="endInterviewBtn" class="btn btn-danger">End Interview</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Summary Modal -->
+    <div id="summaryModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="modal-title">Interview Feedback</h2>
+            <div id="summaryContent" class="modal-body"></div>
+            <button id="closeModalBtn" class="btn btn-primary modal-close-btn">Close</button>
+        </div>
+    </div>
+    
+    <script type="module">
+        // Firebase scripts
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // Your web app's Firebase configuration will be populated by the environment
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make db and auth available globally for script.js
+        window.db = db;
+        window.auth = auth;
+        
+        // Authenticate the user
+        if (typeof __initial_auth_token !== 'undefined') {
+            await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+            await signInAnonymously(auth);
+        }
+
+        // Signal that Firebase is ready
+        document.dispatchEvent(new CustomEvent('firebase-ready'));
+    </script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

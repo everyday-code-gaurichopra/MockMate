@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - MockMate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <img src="https://raw.githubusercontent.com/adrianhajdin/ai_mock_interviews/main/public/logo.svg" alt="Logo">
+            <span>MockMate</span>
+        </a>
+        <nav class="main-nav">
+            <a href="how-it-works.html" class="active">How It Works</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </header>
+
+    <main class="container">
+        <div class="static-page-container">
+            <h1 class="main-heading">How It <span class="highlight-text">Works</span></h1>
+            <p class="sub-heading">Getting started with MockMate is easy. Follow these simple steps to begin your interview preparation journey.</p>
+            
+            <div class="static-content">
+                <div class="step">
+                    <h3>Step 1: Set Up Your Interview</h3>
+                    <p>Navigate to the main dashboard after logging in. In the "Start a New Mock Interview" section, enter the job role you are preparing for (e.g., "Data Analyst") and select your current experience level from the dropdown menu. This helps our AI tailor the questions specifically for you.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2: Grant Permissions & Start</h3>
+                    <p>Click "Let's Get Started." Your browser will prompt you for permission to access your camera and microphone. Please grant access to enable the full interactive experience. Once the questions are generated, click "Start Interview" to begin.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3: Answer the Questions</h3>
+                    <p>The AI interviewer will ask you questions one by one. Listen carefully, and when you are ready to answer, click the "Answer Now" button. The button will turn red, and the indicator will show that the system is recording your response. Speak clearly into your microphone.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 4: Receive Instant Feedback</h3>
+                    <p>When you've finished your answer, click "Stop Answering." Your response will be transcribed, and our AI will immediately provide feedback directly in the conversation transcript. You'll see a critique of your answer and a well-structured example.</p>
+                </div>
+                 <div class="step">
+                    <h3>Step 5: Review Your History</h3>
+                    <p>After completing the interview, the entire session is automatically saved to your account. You can access it anytime from the "Your Past Interviews" section on the dashboard. Click "View Feedback" on any past session to review the full transcript and analysis.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
